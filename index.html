@@ -500,11 +500,11 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <a href="pobediteli.html">Победители</a>
     <a href="finaly.html">Финалы месяца</a>
     <a href="#map">Адрес</a>
-    <a href="#contact">Запись</a>
+    <a href="#signup-panel">Запись</a>
   </div>
   <div class="nav-right">
     <a href="https://t.me/POKER_5St" target="_blank" rel="noopener" class="nav-tg">✈ Telegram</a>
-    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Записаться ♠</button>
+    <button class="nav-cta" onclick="document.getElementById('signup-panel').scrollIntoView({behavior:'smooth', block:'center'})">Записаться ♠</button>
   </div>
   <button class="burger" id="burger" onclick="openMobileMenu()"><span></span><span></span><span></span></button>
 </nav>
@@ -521,7 +521,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <div class="hero-sub">♠ Турниры Вт · Ср · Чт · Вс ♥</div>
     <p class="hero-desc">Прозрачный рейтинг, реальные эмоции и призовой финал для лучших 20 игроков месяца. Спортивный покер — только навык и стратегия.</p>
     <div class="hero-actions">
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn btn-primary">Записаться на турнир ♠</button>
+      <button onclick="document.getElementById('signup-panel').scrollIntoView({behavior:'smooth', block:'center'})" class="btn btn-primary">Записаться на турнир ♠</button>
       <a href="#schedule" class="btn btn-ghost">Расписание</a>
       <a href="https://t.me/POKER_5St" target="_blank" rel="noopener" class="btn btn-tg">✈ Telegram канал</a>
       <button onclick="subscribePush()" class="btn btn-ghost" id="push-btn" style="display:none">🔔 Уведомления о турнирах</button>
@@ -766,7 +766,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="training-card big-label">каждый игровой день</div>
         <span class="training-card free-badge">✓ Абсолютно бесплатно</span>
         <p>Приходите за час до турнира. Наш дилер лично объяснит все правила и ответит на любые вопросы.</p>
-        <button class="t-popup-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Прийти на обучение ♠</button>
+        <button class="t-popup-btn" onclick="document.getElementById('signup-panel').scrollIntoView({behavior:'smooth', block:'center'})">Прийти на обучение ♠</button>
       </div>
     </div>
   </div>
@@ -873,7 +873,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     </div>
 
     <div class="reveal">
-      <div class="form-card">
+      <div class="form-card" id="signup-panel">
         <div id="form-default">
           <div class="form-title">Записаться на турнир</div>
           <div class="form-sub">Заполните форму — администратор свяжется с вами для подтверждения места.</div>
@@ -944,7 +944,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <a href="pobediteli.html">Победители</a>
           <a href="finaly.html">Финалы месяца</a>
                 <a href="#map">Адрес</a>
-          <a href="#contact">Записаться</a>
+          <a href="#signup-panel">Записаться</a>
         </div>
         <div>
           <div class="fcol-t">Документы</div>
@@ -1080,7 +1080,7 @@ document.querySelectorAll('.mov .mbody').forEach(body=>{
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'){document.querySelectorAll('.mov.open').forEach(m=>m.classList.remove('open'));closeTournamentPopupForce();closeMobileMenu();document.body.style.overflow='';} });
 
 // ── HELPERS ──
-function scrollToContact(){ document.getElementById('contact').scrollIntoView({behavior:'smooth'}); }
+function scrollToContact(){ document.getElementById('signup-panel').scrollIntoView({behavior:'smooth', block:'center'}); }
 function computeAge(dobStr){
   if(!dobStr) return null;
   const dob = new Date(dobStr+'T00:00:00');
@@ -1248,6 +1248,49 @@ function buildTicker(entries){
 const AGREEMENT_VERSION = '2026-07-04';
 const PD_VERSION = '2026-07-04';
 
+// ── УМНАЯ ДАТА ── подставляет ближайший день турнира по расписанию, чтобы не вписывать вручную.
+const TOURN_WEEKDAY = {
+  'Пьяный покер (Вт 19:00)': 2,
+  'Феникс (Ср 19:00)': 3,
+  'Большой Куш (Чт 19:00)': 4,
+  'Баунти-турнир (Вс 18:00)': 0,
+};
+const RU_MONTHS_GEN = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+function nextDateForWeekday(targetDow){
+  const today = new Date();
+  const diff = (targetDow - today.getDay() + 7) % 7;
+  const result = new Date(today);
+  result.setDate(today.getDate() + diff);
+  return `${result.getDate()} ${RU_MONTHS_GEN[result.getMonth()]}`;
+}
+function updateSmartDate(){
+  const dow = TOURN_WEEKDAY[document.getElementById('f-tourn').value];
+  if(dow === undefined) return; // «Не знаю / нужна помощь» — дату не трогаем
+  document.getElementById('f-date').value = nextDateForWeekday(dow);
+}
+document.getElementById('f-tourn').addEventListener('change', updateSmartDate);
+
+// ── ЗАПОМИНАНИЕ ИГРОКА ── для повторной записи не нужно заново вводить имя/контакт/дату рождения.
+// Согласия (чекбоксы) сознательно НЕ запоминаем — это отдельное подтверждение при каждой заявке.
+const SAVED_PLAYER_KEY = 'pu5_player_info';
+function savePlayerInfo(name, ct, contact, dob){
+  try{ localStorage.setItem(SAVED_PLAYER_KEY, JSON.stringify({name, ct, contact, dob})); }catch(e){}
+}
+function loadPlayerInfo(){
+  try{
+    const raw = localStorage.getItem(SAVED_PLAYER_KEY);
+    if(!raw) return;
+    const info = JSON.parse(raw);
+    if(info.name) document.getElementById('f-name').value = info.name;
+    if(info.ct) document.getElementById('f-ct').value = info.ct;
+    if(info.contact) document.getElementById('f-contact').value = info.contact;
+    if(info.dob){
+      document.getElementById('f-dob').value = info.dob;
+      checkAge();
+    }
+  }catch(e){}
+}
+
 document.getElementById('signup-form').addEventListener('submit',function(e){
   e.preventDefault();
   const name=document.getElementById('f-name').value.trim();
@@ -1263,6 +1306,8 @@ document.getElementById('signup-form').addEventListener('submit',function(e){
   if(!name||!contact) return;
   // Жёсткая проверка на случай прямого вызова submit() в обход кнопки/disabled-состояния
   if(!agAccepted||!pdAccepted||!dob||age===null||age<18) return;
+
+  savePlayerInfo(name, ct, contact, dob);
 
   let msg=`Здравствуйте! Записываюсь на турнир в клуб «Пятая улица».\n\n`;
   msg+=`Имя/ник: ${name}\nТурнир: ${tourn}\n`;
@@ -1307,10 +1352,14 @@ function resetForm(){
   });
   document.getElementById('form-default').style.display='';
   document.getElementById('form-success').classList.remove('show');
+  updateSmartDate();
+  loadPlayerInfo();
 }
 
 renderRating();
 document.getElementById('f-dob').max = new Date().toISOString().slice(0,10);
+updateSmartDate();
+loadPlayerInfo();
 
 // ── СЧЁТЧИК ПОСЕЩЕНИЙ (для админ-панели, не влияет на сайт) ──
 // ВРЕМЕННЫЙ адрес — тот же принцип, что и у остальных URL на этой странице.
@@ -1404,7 +1453,7 @@ if (pushSupported()) {
       <div class="tpp-row"><span>Двойной аддон</span><b>1600₽</b></div>
       <div class="tpp-note">Ребай — до конца регистрации. Аддон предлагается один раз, после второго перерыва.</div>
     </div>
-    <button class="t-popup-btn" onclick="closeTournamentPopupForce();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Записаться ♠</button>
+    <button class="t-popup-btn" onclick="closeTournamentPopupForce();document.getElementById('signup-panel').scrollIntoView({behavior:'smooth', block:'center'})">Записаться ♠</button>
   </div>
 </div>
 
@@ -1430,7 +1479,7 @@ if (pushSupported()) {
     <a href="finaly.html" class="mm-link"><span class="mm-link-ico">🏁</span>Финалы месяца</a>
     <a href="#map" class="mm-link" onclick="closeMobileMenu()"><span class="mm-link-ico">📍</span>Адрес и контакты</a>
   </div>
-  <button class="mm-cta" onclick="closeMobileMenu();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Записаться на турнир ♠</button>
+  <button class="mm-cta" onclick="closeMobileMenu();document.getElementById('signup-panel').scrollIntoView({behavior:'smooth', block:'center'})">Записаться на турнир ♠</button>
   <div class="mm-socials">
     <a href="https://t.me/POKER_5St" target="_blank" class="mm-soc tg">✈ Telegram</a>
     <a href="https://vk.com/poker_5st" target="_blank" class="mm-soc">VK</a>
