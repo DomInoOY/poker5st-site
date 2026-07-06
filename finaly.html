@@ -488,7 +488,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 .fin-card-date{font-size:12px;color:var(--td);font-family:'JetBrains Mono',monospace;margin-top:4px;}
 .fin-card-caption{padding:0 28px 22px;font-size:13.5px;color:var(--tm);line-height:1.75;white-space:pre-line;max-width:640px;}
 
-.fin-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
+.fin-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
 .fin-gallery.count-1{grid-template-columns:1fr;}
 .fin-gallery.count-2{grid-template-columns:repeat(2,1fr);}
 .fin-gallery.count-3{grid-template-columns:repeat(3,1fr);}
@@ -509,7 +509,11 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 .fin-lightbox-close{position:absolute;top:22px;right:26px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--bdr);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;}
 
 @media(max-width:700px){
-  .fin-gallery{grid-template-columns:repeat(2,1fr) !important;}
+  /* На мобильном ВСЕГДА один столбец на всю ширину — раньше тут стояла жёсткая сетка
+     из 2 колонок для любого числа фото, из-за чего одно-единственное фото у финала
+     съёживалось в маленький квадратик в левой половине карточки (пустая правая половина). */
+  .fin-gallery{grid-template-columns:1fr !important;gap:10px;}
+  .fin-gallery .fin-photo{aspect-ratio:4/3 !important;}
   .fin-card-head{padding:22px 20px 16px;}
   .fin-card-caption{padding:0 20px 18px;}
 }
