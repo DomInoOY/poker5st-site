@@ -634,8 +634,8 @@ function openMobileMenu(){ document.getElementById('mobile-menu').classList.add(
 function closeMobileMenu(){ document.getElementById('mobile-menu').classList.remove('open'); document.body.style.overflow=''; }
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMobileMenu(); });
 
-// ВРЕМЕННЫЙ адрес — тот же принцип, что и на основном сайте, заменить после переноса бота на сервер.
-const FINALS_URL = 'http://localhost:8080/finals';
+// ВРЕМЕННЫЙ адрес — ngrok-туннель до компьютера с ботом, тот же принцип, что и на основном сайте.
+const FINALS_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/finals';
 
 function escapeHtml(s){
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -655,7 +655,7 @@ function closeLightbox(e){
 async function loadFinals(){
   const list = document.getElementById('fin-list');
   try {
-    const res = await fetch(FINALS_URL);
+    const res = await fetch(FINALS_URL, {headers: {'ngrok-skip-browser-warning': 'true'}});
     const data = await res.json();
     const finals = data.finals || [];
     if(!finals.length){

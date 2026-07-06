@@ -615,8 +615,8 @@ function openMobileMenu(){ document.getElementById('mobile-menu').classList.add(
 function closeMobileMenu(){ document.getElementById('mobile-menu').classList.remove('open'); document.body.style.overflow=''; }
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMobileMenu(); });
 
-// ВРЕМЕННЫЙ адрес — тот же принцип, что и на основном сайте, заменить после переноса бота на сервер.
-const WINNERS_URL = 'http://localhost:8080/winners';
+// ВРЕМЕННЫЙ адрес — ngrok-туннель до компьютера с ботом, тот же принцип, что и на основном сайте.
+const WINNERS_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/winners';
 
 function escapeHtml(s){
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -625,7 +625,7 @@ function escapeHtml(s){
 async function loadWinners(){
   const grid = document.getElementById('win-grid');
   try {
-    const res = await fetch(WINNERS_URL);
+    const res = await fetch(WINNERS_URL, {headers: {'ngrok-skip-browser-warning': 'true'}});
     const data = await res.json();
     const winners = data.winners || [];
     if(!winners.length){

@@ -399,6 +399,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 @media(max-width:640px){
   section{padding:80px 0;}
   .hero{padding-top:105px;}
+  .hero-badge{white-space:normal;max-width:88%;text-align:center;line-height:1.7;}
   .hero-logo-img{width:150px;height:150px;}
   .f2{grid-template-columns:1fr;}
   .rtable th,.rtable td{padding:10px 13px;}
@@ -899,13 +900,13 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
               <div class="lcb locked" id="lcb-pd-row"><input type="checkbox" id="cb-pd" onchange="syncSubmit()" disabled><label for="cb-pd">Даю <a onclick="openModal('m-pd')">согласие на обработку персональных данных</a> (ФЗ-152)<span class="lcb-hint" id="lcb-pd-hint">Откройте и дочитайте документ до конца, чтобы поставить галочку</span></label></div>
             </div>
             <button type="submit" class="fsubmit" id="f-submit" disabled>Отправить заявку ♠</button>
-            <p class="fnote">После отправки заявка скопируется в буфер — отправьте её администратору в Telegram или ВКонтакте. Или просто позвоните: <b>+7 950 732-53-55</b></p>
+            <p class="fnote">После отправки заявка автоматически придёт администратору клуба. Если долго нет ответа — напишите в <a href="https://t.me/POKER_5St" target="_blank">Telegram</a> или позвоните: <b>+7 950 732-53-55</b></p>
           </form>
         </div>
         <div class="fsuccess" id="form-success">
           <div class="fsuccess-ico">♠</div>
           <div class="fsuccess-title">Заявка готова!</div>
-          <div class="fsuccess-txt">Ваша заявка отправлена! Напишите нам в Telegram или ВКонтакте, либо позвоните — администратор подтвердит ваше место.</div>
+          <div class="fsuccess-txt">Ваша заявка отправлена администратору автоматически — он свяжется с вами для подтверждения места. Если долго нет ответа, напишите или позвоните сами.</div>
           <div class="fsuccess-acts">
             <a href="https://t.me/POKER_5St" target="_blank" class="btn btn-tg">✈ Telegram</a>
             <a href="https://vk.com/poker_5st" target="_blank" class="btn btn-primary">VK ♠</a>
@@ -1106,13 +1107,13 @@ function syncSubmit(){
 // ── RATING + PLAYER SEARCH ──
 // Рейтинг больше не хранится в localStorage браузера (это давало разный рейтинг у каждого посетителя) —
 // он считается ботом из результатов турниров и отдаётся отсюда всем одинаково.
-// ВРЕМЕННЫЙ адрес — тот же принцип, что и BOT_URL/PUSH_SUBSCRIBE_URL выше, замените после переноса бота на сервер.
-const RATING_URL = 'http://localhost:8080/rating';
+// ВРЕМЕННЫЙ адрес — ngrok-туннель до компьютера с ботом (см. пояснение у BOT_URL ниже). Замените после переноса бота на сервер.
+const RATING_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/rating';
 let RATING_DATA = { players: [], tournaments: 0, pool_total: 0 };
 
 async function loadRatingData(){
   try {
-    const res = await fetch(RATING_URL);
+    const res = await fetch(RATING_URL, {headers: {'ngrok-skip-browser-warning': 'true'}});
     if(!res.ok) throw new Error('bad status');
     RATING_DATA = await res.json();
   } catch(e) {
@@ -1267,9 +1268,9 @@ document.getElementById('signup-form').addEventListener('submit',function(e){
   try{navigator.clipboard&&navigator.clipboard.writeText(msg);}catch(err){}
 
   // Отправляем на бота (если сервер запущен)
-  // ВРЕМЕННЫЙ адрес — localhost работает только при тестировании на компьютере с ботом.
-  // После переноса бота на постоянный сервер/Vercel замените на реальный публичный URL.
-  const BOT_URL = 'http://localhost:8080/register';
+  // ВРЕМЕННЫЙ адрес — ngrok-туннель до компьютера с ботом (нужен HTTPS, т.к. сайт на HTTPS не может стучаться на голый HTTP).
+  // После переноса бота на постоянный сервер замените на реальный публичный URL.
+  const BOT_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/register';
   const payload = {
     name, ct, contact, tournament: tourn, date, comment,
     dob, age,
@@ -1283,7 +1284,7 @@ document.getElementById('signup-form').addEventListener('submit',function(e){
       // в момент приёма запроса (это надёжнее и не подделывается со стороны браузера).
     }
   };
-  fetch(BOT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)})
+  fetch(BOT_URL, {method:'POST', headers:{'Content-Type':'application/json', 'ngrok-skip-browser-warning':'true'}, body: JSON.stringify(payload)})
     .catch(() => {}); // тихо падаем если бот не запущен
 
   document.getElementById('form-default').style.display='none';
@@ -1308,10 +1309,10 @@ document.getElementById('f-dob').max = new Date().toISOString().slice(0,10);
 
 // ── СЧЁТЧИК ПОСЕЩЕНИЙ (для админ-панели, не влияет на сайт) ──
 // ВРЕМЕННЫЙ адрес — тот же принцип, что и у остальных URL на этой странице.
-const VISIT_TRACK_URL = 'http://localhost:8080/track-visit';
+const VISIT_TRACK_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/track-visit';
 fetch(VISIT_TRACK_URL, {
   method: 'POST',
-  headers: {'Content-Type': 'application/json'},
+  headers: {'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true'},
   body: JSON.stringify({page: location.pathname + location.hash})
 }).catch(() => {}); // тихо падаем, если бот недоступен — на сайт это никак не влияет
 
@@ -1319,7 +1320,7 @@ fetch(VISIT_TRACK_URL, {
 // Публичный VAPID-ключ — безопасно светить на клиенте, приватный лежит только в боте.
 const VAPID_PUBLIC_KEY = 'BFKIEReSLhUJuJJMeLstFhmHhSXZFWsogz5QUx6XuwZB0AQHtdXngfgRn_sMOohjF6Eo6Fxjr4Ew4EbuwChvjoY';
 // Тот же временный адрес, что и BOT_URL выше — см. пояснение там про перенос на постоянный сервер.
-const PUSH_SUBSCRIBE_URL = 'http://localhost:8080/push-subscribe';
+const PUSH_SUBSCRIBE_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/push-subscribe';
 
 function urlBase64ToUint8Array(base64String) {
   const padding = '='.repeat((4 - base64String.length % 4) % 4);
@@ -1356,7 +1357,7 @@ async function subscribePush() {
     });
     await fetch(PUSH_SUBSCRIBE_URL, {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true'},
       body: JSON.stringify(sub)
     }).catch(() => {});
     btn.textContent = '🔔 Уведомления включены';
