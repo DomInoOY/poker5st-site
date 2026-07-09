@@ -1357,7 +1357,12 @@ function resetForm(){
 }
 
 renderRating();
-document.getElementById('f-dob').max = new Date().toISOString().slice(0,10);
+// new Date().toISOString() переводит в UTC — Челябинск это UTC+5, глубокой ночью по местному
+// времени это давало ВЧЕРАШНЮЮ дату как максимум для даты рождения (проверено на практике).
+(function(){
+  const n = new Date();
+  document.getElementById('f-dob').max = n.getFullYear() + '-' + String(n.getMonth()+1).padStart(2,'0') + '-' + String(n.getDate()).padStart(2,'0');
+})();
 updateSmartDate();
 loadPlayerInfo();
 
