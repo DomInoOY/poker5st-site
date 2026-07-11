@@ -400,6 +400,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   section{padding:80px 0;}
   .hero{padding-top:105px;}
   .hero-badge{white-space:normal;max-width:88%;text-align:center;line-height:1.7;}
+  .hero-sub{font-size:13px;letter-spacing:1.5px;white-space:nowrap;}
   .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);}
   .hstat{padding:12px 4px;}
   .hstat-v{font-size:19px;}
@@ -519,7 +520,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <p class="hero-label">Клуб спортивного покера</p>
     <div class="hero-tagline">НЕ НА<br>ДЕНЬГИ</div>
     <div class="hero-sub">♠ Турниры Вт · Ср · Чт · Вс ♥</div>
-    <p class="hero-desc">Прозрачный рейтинг, реальные эмоции и призовой финал для лучших 20 игроков месяца. Спортивный покер — только навык и стратегия.</p>
+    <p class="hero-desc">Прозрачный рейтинг, реальные эмоции и бесплатный финал месяца за титул чемпиона для лучших 20 игроков. Спортивный покер — только навык и стратегия.</p>
     <div class="hero-actions">
       <button onclick="document.getElementById('signup-panel').scrollIntoView({behavior:'smooth', block:'center'})" class="btn btn-primary">Записаться на турнир ♠</button>
       <a href="#schedule" class="btn btn-ghost">Расписание</a>
@@ -601,32 +602,32 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="pc-name">«Пьяный покер»</div>
         <div class="pc-bonus">🍹 Авторский коктейль — бесплатно каждому гостю</div>
         <div class="pc-time">Бесплатное обучение в 18:00 · ре-энтри разрешён</div>
-        <div class="pc-bot"><div class="pc-stack">Стек <b>10 000</b></div><button class="pc-cta" onclick="scrollToContact()">Записаться</button></div>
+        <div class="pc-bot"><div class="pc-stack">Стек <b>20 000</b></div><button class="pc-cta" onclick="scrollToContact()">Записаться</button></div>
       </div>
       <div class="pc reveal" data-suit="♥" onclick="openTP('СРЕДА · 19:00','Феникс','800₽','🚀 Первый ребай — бесплатно!','Турнир «Феникс» даёт второй шанс! Первый ребай абсолютно бесплатно. Начни игру с преимуществом и покажи, что настоящий игрок не сдаётся. Обучение в 18:00.')">
         <div class="pc-top"><span class="pc-tag t-ds">🔥 СР · 19:00</span><span class="pc-price">800₽</span></div>
         <div class="pc-name">Турнир «Феникс»</div>
         <div class="pc-bonus">🚀 Первый ребай — бесплатно!</div>
         <div class="pc-time">Бесплатное обучение в 18:00 · ре-энтри разрешён</div>
-        <div class="pc-bot"><div class="pc-stack">Стек <b>10 000</b></div><button class="pc-cta" onclick="scrollToContact()">Записаться</button></div>
+        <div class="pc-bot"><div class="pc-stack">Стек <b>20 000</b></div><button class="pc-cta" onclick="scrollToContact()">Записаться</button></div>
       </div>
       <div class="pc reveal" data-suit="♦" onclick="openTP('ЧЕТВЕРГ · 19:00','Большой Куш (BOMB-POT)','800₽','🎲 Конверты с эксклюзивными бонусами!','BOMB-POT — особый формат: в случайных раздачах все игроки ставят до карт. Победителей ждут конверты с эксклюзивными бонусами! Обучение в 18:00.')">
         <div class="pc-top"><span class="pc-tag t-sp">🔥 ЧТ · 19:00</span><span class="pc-price">800₽</span></div>
         <div class="pc-name">«Большой Куш» (ВОМБ-РОТ)</div>
         <div class="pc-bonus">🎲 Конверты с эксклюзивными бонусами!</div>
         <div class="pc-time">Бесплатное обучение в 18:00 · особый формат</div>
-        <div class="pc-bot"><div class="pc-stack">Стек <b>10 000</b></div><button class="pc-cta" onclick="scrollToContact()">Записаться</button></div>
+        <div class="pc-bot"><div class="pc-stack">Стек <b>20 000</b></div><button class="pc-cta" onclick="scrollToContact()">Записаться</button></div>
       </div>
       <div class="pc reveal" data-suit="♣" onclick="openTP('ВОСКРЕСЕНЬЕ · 18:00','Баунти-турнир','1000₽','🎯 +100 рейтинговых очков за каждого выбитого!','Охотьтесь на соперников! За каждого выбитого игрока — +100 рейтинговых очков лично вам. Ре-энтри разрешён. Это шанс резко подняться в рейтинге месяца!')">
         <div class="pc-top"><span class="pc-tag t-bn">🎯 ВС · 18:00</span><span class="pc-price">1000₽</span></div>
         <div class="pc-name">Баунти-турнир</div>
         <div class="pc-bonus">💰 +100 очков рейтинга за каждого поверженного!</div>
         <div class="pc-time">Баунти-формат · начало в 18:00</div>
-        <div class="pc-bot"><div class="pc-stack">Стек <b>10 000</b></div><button class="pc-cta" onclick="scrollToContact()">Записаться</button></div>
+        <div class="pc-bot"><div class="pc-stack">Стек <b>20 000</b></div><button class="pc-cta" onclick="scrollToContact()">Записаться</button></div>
       </div>
     </div>
     <div style="background:rgba(64,216,122,.07);border:1px solid rgba(64,216,122,.2);border-radius:14px;padding:16px 22px;margin-top:20px;font-size:13.5px;color:var(--tm);text-align:center;">
-      📍 Все турниры проходят в ресторане <b style="color:var(--t)">«АНИГО»</b> по адресу: <b style="color:var(--pl)">ул. Кирова, 82, Челябинск</b> &nbsp;·&nbsp; Играем строго <b style="color:var(--green)">НЕ НА ДЕНЬГИ</b>
+      📍 Все турниры проходят в ресторане <b style="color:var(--t)">«АНИГО»</b> по адресу: <b style="color:var(--pl)">ул.&nbsp;Кирова,&nbsp;82,&nbsp;Челябинск</b> &nbsp;·&nbsp; Играем строго <b style="color:var(--green)">НЕ НА ДЕНЬГИ</b>
     </div>
   </div>
 </section>
@@ -704,7 +705,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="rstep"><div class="rn">01</div><div><div class="rt">Вход в турнир</div><div class="rd">Любой вход — стандартный, ре-энтри, платный или бесплатный — добавляет <b>100 очков</b> в общий пул турнира.</div></div></div>
         <div class="rstep"><div class="rn">02</div><div><div class="rt">Баунти-нокаут</div><div class="rd">В баунти-форматах за каждого выбитого соперника вы получаете <b>+100 очков</b> лично в рейтинг месяца.</div></div></div>
         <div class="rstep"><div class="rn">03</div><div><div class="rt">Распределение пула</div><div class="rd">Пул турнира делится между ТОП-20 — от <b>20%</b> за 1-е до <b>1%</b> за места 15–20. Очки суммируются в рейтинге месяца.</div></div></div>
-        <div class="rstep"><div class="rn">04</div><div><div class="rt">Финал месяца — призы</div><div class="rd">ТОП-20 рейтинга получают бесплатный вход в Финал. Формат — фризаут. <b>Разыгрываются реальные призы</b> от клуба: памятные подарки, клубная атрибутика и специальные привилегии победителям.</div></div></div>
+        <div class="rstep"><div class="rn">04</div><div><div class="rt">Финал месяца</div><div class="rd">ТОП-20 рейтинга играют <b>абсолютно бесплатно</b> в финальном турнире месяца за звание чемпиона «Пятой улицы». Формат — фризаут. Финалистов ждут приветственные напитки, аппетитные закуски и крутая атмосфера.</div></div></div>
       </div>
       <div class="payout-c reveal">
         <div class="ptitle">Распределение пула турнира</div>
@@ -723,8 +724,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="prow"><div class="prow-pl">12–14 места</div><span class="ppct">1.5%</span></div>
         <div class="prow"><div class="prow-pl">15–20 места</div><span class="ppct">1%</span></div>
         <div class="final-note">
-          <div class="final-note-title">🏆 Финал месяца — ПРИЗЫ</div>
-          <div class="final-note-text">В Финале месяца разыгрываются <b>реальные призы от клуба</b>: клубная атрибутика, памятные подарки и специальные привилегии для победителей. Подробности призов — на каждый финал отдельно в нашем Telegram канале.</div>
+          <div class="final-note-title">🏆 Финал месяца</div>
+          <div class="final-note-text">Первые 20 игроков рейтинга играют <b>абсолютно бесплатно</b> на финальном турнире месяца за звание чемпиона «Пятой улицы». Финалистов ждут приветственные напитки, аппетитные закуски и крутая атмосфера.</div>
         </div>
       </div>
     </div>
@@ -842,11 +843,11 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 <section class="about">
   <div class="wrap about-grid">
     <div class="reveal">
-      <div class="about-quote">Покер — это <span class="acc">спорт</span>, а не азарт. Мы играем не на деньги, а за место в рейтинге и реальные призы финала.</div>
+      <div class="about-quote">Покер — это <span class="acc">спорт</span>, а не азарт. Мы играем не на деньги, а за место в рейтинге и титул чемпиона в финале месяца.</div>
     </div>
     <div class="afacts reveal">
       <div class="af"><div class="af-m">КЛУБ</div><div class="af-t"><b>Пятая улица</b> — клуб спортивного покера в Челябинске. Ресторан «АНИГО», ул. Кирова 82. Работаем Вт, Ср, Чт, Вс.</div></div>
-      <div class="af"><div class="af-m">ФОРМАТ</div><div class="af-t">Игра <b>не на деньги</b>. Бай-ин — организационный взнос. Разыгрываются очки рейтинга и реальные призы в финале.</div></div>
+      <div class="af"><div class="af-m">ФОРМАТ</div><div class="af-t">Игра <b>не на деньги</b>. Бай-ин — организационный взнос. Разыгрываются очки рейтинга, а топ-20 месяца играет финал за звание чемпиона.</div></div>
       <div class="af"><div class="af-m">НОВИЧКАМ</div><div class="af-t">Бесплатное обучение каждый игровой день в <b>18:00</b>. Приводи друзей — получай бонусные конверты!</div></div>
     </div>
   </div>
@@ -1005,6 +1006,17 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 
 <script>
 // ── TOURNAMENT POPUP ──
+// День из карточки турнира → готовое значение для select'а формы записи. Раньше кнопка
+// «Записаться» в этом попапе просто закрывала попап и скроллила к форме, где турнир нужно
+// было выбирать ЗАНОВО — люди путались и по невнимательности записывались не на тот день
+// (например открывали карточку воскресного турнира, а в форме оставался турнир по умолчанию).
+const TP_DAY_TO_FORM_VALUE = {
+  'вторник': 'Пьяный покер (Вт 19:00)',
+  'среда': 'Феникс (Ср 19:00)',
+  'четверг': 'Большой Куш (Чт 19:00)',
+  'воскресенье': 'Баунти-турнир (Вс 18:00)',
+};
+let currentTPFormValue = null;
 function openTP(day, name, price, bonus, desc) {
   document.getElementById('tp-day').textContent = day;
   document.getElementById('tp-name').textContent = name;
@@ -1015,6 +1027,8 @@ function openTP(day, name, price, bonus, desc) {
   document.getElementById('tpp-weekday').style.display = isSunday ? 'none' : '';
   document.getElementById('tpp-sunday').style.display = isSunday ? '' : 'none';
   document.getElementById('t-popup-overlay').classList.add('show');
+  const dayKey = Object.keys(TP_DAY_TO_FORM_VALUE).find(k => day.toLowerCase().includes(k));
+  currentTPFormValue = dayKey ? TP_DAY_TO_FORM_VALUE[dayKey] : null;
 }
 function closeTournamentPopup(e) {
   if (e && e.target !== document.getElementById('t-popup-overlay')) return;
@@ -1022,6 +1036,15 @@ function closeTournamentPopup(e) {
 }
 function closeTournamentPopupForce() {
   document.getElementById('t-popup-overlay').classList.remove('show');
+}
+function signupFromPopup() {
+  closeTournamentPopupForce();
+  if (currentTPFormValue) {
+    const sel = document.getElementById('f-tourn');
+    sel.value = currentTPFormValue;
+    sel.dispatchEvent(new Event('change', {bubbles: true}));
+  }
+  document.getElementById('signup-panel').scrollIntoView({behavior:'smooth', block:'center'});
 }
 
 // ── MOBILE MENU ──
@@ -1458,7 +1481,7 @@ if (pushSupported()) {
       <div class="tpp-row"><span>Двойной аддон</span><b>1600₽</b></div>
       <div class="tpp-note">Ребай — до конца регистрации. Аддон предлагается один раз, после второго перерыва.</div>
     </div>
-    <button class="t-popup-btn" onclick="closeTournamentPopupForce();document.getElementById('signup-panel').scrollIntoView({behavior:'smooth', block:'center'})">Записаться ♠</button>
+    <button class="t-popup-btn" onclick="signupFromPopup()">Записаться ♠</button>
   </div>
 </div>
 
