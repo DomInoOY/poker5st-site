@@ -1139,13 +1139,17 @@ function syncSubmit(){
 const RATING_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/rating';
 let RATING_DATA = { players: [], tournaments: 0, pool_total: 0 };
 
+let RATING_LOAD_FAILED = false;
+
 async function loadRatingData(){
   try {
     const res = await fetch(RATING_URL, {headers: {'ngrok-skip-browser-warning': 'true'}});
     if(!res.ok) throw new Error('bad status');
     RATING_DATA = await res.json();
+    RATING_LOAD_FAILED = false;
   } catch(e) {
     RATING_DATA = { players: [], tournaments: 0, pool_total: 0 };
+    RATING_LOAD_FAILED = true;
   }
   return RATING_DATA;
 }
@@ -1199,7 +1203,9 @@ async function renderRating(){
   const badges = computeBadges(entries);
   const tbody=document.getElementById('rating-tbody');
   if(!entries.length){
-    tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--td)">Рейтинг наполнится после первых турниров.<br>Следите в нашем <a href="https://t.me/POKER_5St" target="_blank" style="color:var(--pl)">Telegram канале</a>.</td></tr>';
+    tbody.innerHTML = RATING_LOAD_FAILED
+      ? '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--td)">⚠️ Не получилось загрузить рейтинг — временные технические неполадки.<br>Обновите страницу через минуту или загляните в наш <a href="https://t.me/POKER_5St" target="_blank" style="color:var(--pl)">Telegram канал</a>.</td></tr>'
+      : '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--td)">Рейтинг наполнится после первых турниров.<br>Следите в нашем <a href="https://t.me/POKER_5St" target="_blank" style="color:var(--pl)">Telegram канале</a>.</td></tr>';
     return;
   }
   tbody.innerHTML=entries.slice(0,20).map(e=>{
