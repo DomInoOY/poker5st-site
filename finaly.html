@@ -71,14 +71,14 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 @keyframes d2{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,42px)}}
 
 /* Hero watermark logo */
-.hero-wm{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(1100px,95vw);height:min(1100px,95vw);background:url(images/apple-touch-icon.png) center/contain no-repeat;opacity:.09;filter:brightness(1.6) saturate(.5);pointer-events:none;z-index:0;}
+.hero-wm{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(1100px,95vw);height:min(1100px,95vw);background:url(images/logo-hero.png) center/contain no-repeat;opacity:.09;filter:brightness(1.6) saturate(.5);pointer-events:none;z-index:0;}
 
 .hero-inner{position:relative;z-index:2;text-align:center;}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;margin-bottom:26px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--pl);font-weight:700;padding:8px 18px;border:1px solid var(--bds);border-radius:100px;background:var(--glass);backdrop-filter:blur(12px);}
 .ldot{width:14px;height:14px;border-radius:50%;position:relative;flex-shrink:0;background:repeating-conic-gradient(var(--pl) 0deg 22.5deg,var(--p) 22.5deg 45deg);box-shadow:0 0 9px var(--pg);animation:pulse 1.8s infinite;}
 .ldot::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--d3);}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
-.hero-logo-img{width:190px;height:190px;margin:0 auto 16px;background:url(images/apple-touch-icon.png) center/contain no-repeat;filter:drop-shadow(0 0 44px rgba(178,102,240,.6));animation:glow 4s ease-in-out infinite;}
+.hero-logo-img{width:190px;height:190px;margin:0 auto 16px;background:url(images/logo-hero.png) center/contain no-repeat;filter:drop-shadow(0 0 44px rgba(178,102,240,.6));animation:glow 4s ease-in-out infinite;}
 @keyframes glow{0%,100%{filter:drop-shadow(0 0 44px rgba(178,102,240,.6))}50%{filter:drop-shadow(0 0 64px rgba(212,41,138,.7))}}
 .hero-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--tm);font-weight:700;margin-bottom:12px;}
 .hero-tagline{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(38px,8vw,100px);line-height:.9;margin-bottom:10px;background:linear-gradient(135deg,#fff 15%,var(--pl) 50%,var(--ml) 80%,var(--gold) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
