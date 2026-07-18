@@ -924,8 +924,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         </div>
         <div class="fsuccess" id="form-success">
           <div class="fsuccess-ico">♠</div>
-          <div class="fsuccess-title">Заявка готова!</div>
-          <div class="fsuccess-txt">Ваша заявка отправлена администратору автоматически — он свяжется с вами для подтверждения места. Если долго нет ответа, напишите или позвоните сами.</div>
+          <div class="fsuccess-title" id="fsuccess-title">Заявка готова!</div>
+          <div class="fsuccess-txt" id="fsuccess-txt">Ваша заявка отправлена администратору автоматически — он свяжется с вами для подтверждения места. Если долго нет ответа, напишите или позвоните сами.</div>
           <div class="fsuccess-acts">
             <a href="https://t.me/POKER_5St" target="_blank" class="btn btn-tg">✈ Telegram</a>
             <a href="https://vk.com/poker_5st" target="_blank" class="btn btn-primary">VK ♠</a>
@@ -1407,6 +1407,12 @@ document.getElementById('signup-form').addEventListener('submit',function(e){
   };
   fetch(BOT_URL, {method:'POST', headers:{'Content-Type':'application/json', 'ngrok-skip-browser-warning':'true'}, body: JSON.stringify(payload)})
     .catch(() => {}); // тихо падаем если бот не запущен
+
+  const escHtml = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  document.getElementById('fsuccess-title').textContent = 'Поздравляем, вы зарегистрированы! 🎉';
+  document.getElementById('fsuccess-txt').innerHTML =
+    `Вы записаны на турнир «<b>${escHtml(tourn)}</b>»` + (date ? `, ${escHtml(date)}` : '') + `.<br>` +
+    `Приходите к началу турнира и получите <b>+10 000 фишек</b> к стартовому стеку — это бонус за пунктуальность!`;
 
   document.getElementById('form-default').style.display='none';
   document.getElementById('form-success').classList.add('show');
