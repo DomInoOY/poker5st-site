@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#08060F">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>Победители турниров — Пятая улица | Клуб спортивного покера Челябинск</title>
-<meta name="description" content="Победители турниров клуба спортивного покера «Пятая улица» в Челябинске. Фото и результаты каждого игрового вечера.">
-<meta property="og:title" content="Победители турниров — Пятая улица">
-<meta property="og:description" content="Фото и результаты победителей турниров клуба спортивного покера в Челябинске.">
+<title>Политика конфиденциальности — Пятая улица | Клуб спортивного покера Челябинск</title>
+<meta name="description" content="Политика конфиденциальности и условия участия в мероприятиях клуба спортивного покера «Пятая улица» в Челябинске.">
+<meta property="og:title" content="Политика конфиденциальности — Пятая улица">
+<meta property="og:description" content="Условия участия и обработка персональных данных в клубе спортивного покера «Пятая улица».">
 <meta property="og:type" content="website">
 <meta property="og:image" content="images/icon-512.png">
 <link rel="manifest" href="manifest.json">
@@ -471,55 +471,26 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 .training-card p{font-size:13.5px;color:var(--tm);line-height:1.7;margin-bottom:18px;}
 
 @media(max-width:980px){.training-grid{grid-template-columns:1fr;}}
-/* ── ГОЛОВНОЙ БЛОК СТРАНИЦЫ ПОБЕДИТЕЛЕЙ ── */
-.win-hero{padding:150px 0 60px;text-align:center;position:relative;overflow:hidden;}
-.win-hero-badge{display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--pl);font-weight:700;padding:8px 18px;border:1px solid var(--bds);border-radius:100px;background:var(--glass);backdrop-filter:blur(12px);}
-.win-hero h1{font-family:'Unbounded',sans-serif;font-size:clamp(32px,5.5vw,58px);font-weight:900;letter-spacing:-1px;line-height:1.05;margin-bottom:16px;background:linear-gradient(120deg,#fff,var(--pl) 60%,var(--mag));-webkit-background-clip:text;background-clip:text;color:transparent;}
-.win-hero p{font-size:15px;color:var(--tm);max-width:520px;margin:0 auto;line-height:1.6;}
+/* ── ГОЛОВНОЙ БЛОК СТРАНИЦЫ ПОЛИТИКИ ── */
+.legal-hero{padding:150px 0 40px;text-align:center;position:relative;overflow:hidden;}
+.legal-hero-badge{display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--pl);font-weight:700;padding:8px 18px;border:1px solid var(--bds);border-radius:100px;background:var(--glass);backdrop-filter:blur(12px);}
+.legal-hero h1{font-family:'Unbounded',sans-serif;font-size:clamp(28px,4.5vw,46px);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:14px;background:linear-gradient(120deg,#fff,var(--pl) 60%,var(--mag));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.legal-hero p{font-size:13px;color:var(--td);font-family:'JetBrains Mono',monospace;}
 
-/* ── СТЕНА ПОБЕДИТЕЛЕЙ (полароиды на прищепках) ── */
-.win-section{padding:20px 0 100px;}
-.win-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:44px 30px;padding:30px 10px 10px;}
-
-.win-card{
-  background:#f3efe6;width:210px;padding:12px 12px 40px;border-radius:3px;position:relative;
-  box-shadow:0 16px 34px rgba(0,0,0,.5),0 3px 8px rgba(0,0,0,.3);
-  cursor:pointer;transition:.35s transform,.35s box-shadow;
+/* ── ТЕКСТ ── */
+.legal-section{padding:20px 0 100px;}
+.legal-box{background:var(--d3);border:1px solid var(--bdr);border-radius:22px;max-width:760px;margin:0 auto;padding:36px 40px;font-size:14.5px;color:var(--tm);line-height:1.85;}
+.legal-box h2{color:var(--t);margin:30px 0 10px;font-family:'Unbounded',sans-serif;font-weight:700;font-size:17px;}
+.legal-box h2:first-child{margin-top:0;}
+.legal-box p{margin-bottom:12px;}
+.legal-box ul{margin:8px 0 14px 20px;display:flex;flex-direction:column;gap:6px;}
+.legal-box b{color:var(--t);}
+.legal-box a{color:var(--pl);}
+.legal-footdate{margin-top:26px;padding-top:18px;border-top:1px solid var(--bdr);font-size:12px;color:var(--td);font-family:'JetBrains Mono',monospace;}
+@media(max-width:640px){
+  .legal-box{padding:26px 22px;}
+  .legal-hero h1{font-size:clamp(18px,5.8vw,36px);}
 }
-.win-card:nth-child(6n+1){transform:rotate(-4deg);}
-.win-card:nth-child(6n+2){transform:rotate(3deg);}
-.win-card:nth-child(6n+3){transform:rotate(-2deg);}
-.win-card:nth-child(6n+4){transform:rotate(4deg);}
-.win-card:nth-child(6n+5){transform:rotate(-3deg);}
-.win-card:nth-child(6n+6){transform:rotate(2deg);}
-.win-card:hover{transform:rotate(0deg) scale(1.07) translateY(-8px);box-shadow:0 26px 55px rgba(139,47,224,.35),0 6px 14px rgba(0,0,0,.35);z-index:5;}
-
-.win-pin{position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-8deg);font-size:26px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.5));pointer-events:none;}
-
-.win-photo-wrap{width:100%;aspect-ratio:4/5;overflow:hidden;background:#000;border-radius:1px;}
-.win-photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
-
-.win-body{padding-top:12px;text-align:center;}
-.win-tourn{font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:#9b3fe8;font-weight:700;}
-.win-name{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:#1c1a17;margin:3px 0 2px;letter-spacing:-.2px;}
-.win-date{font-size:10px;color:#7a756b;font-family:'JetBrains Mono',monospace;}
-
-.win-empty{width:100%;text-align:center;padding:70px 20px;color:var(--td);}
-.win-empty-ico{font-size:42px;margin-bottom:16px;opacity:.5;}
-.win-empty p{font-size:14px;max-width:380px;margin:0 auto;line-height:1.6;}
-.win-loading{width:100%;text-align:center;padding:70px 20px;color:var(--td);font-size:14px;}
-
-/* ── ЛАЙТБОКС (увеличенное фото по клику) ── */
-.win-lightbox{display:none;position:fixed;inset:0;background:rgba(5,3,10,.92);backdrop-filter:blur(8px);z-index:999;align-items:center;justify-content:center;padding:30px;cursor:zoom-out;}
-.win-lightbox.open{display:flex;}
-.win-lightbox-inner{max-width:min(92vw,560px);max-height:90vh;background:#f3efe6;padding:18px 18px 28px;border-radius:6px;box-shadow:0 40px 90px rgba(0,0,0,.6);cursor:default;display:flex;flex-direction:column;overflow:auto;}
-.win-lightbox-inner img{width:100%;max-height:65vh;object-fit:contain;border-radius:2px;background:#000;}
-.win-lightbox-cap{padding-top:16px;text-align:center;}
-.win-lightbox-tourn{font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:#9b3fe8;font-weight:700;}
-.win-lightbox-name{font-family:'Unbounded',sans-serif;font-size:21px;font-weight:800;color:#1c1a17;margin:6px 0 2px;}
-.win-lightbox-date{font-size:12px;color:#7a756b;font-family:'JetBrains Mono',monospace;margin-bottom:10px;}
-.win-lightbox-caption{font-size:13px;color:#4a453d;line-height:1.6;white-space:pre-line;}
-.win-lightbox-close{position:absolute;top:18px;right:22px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -539,7 +510,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <a href="/#rules">Правила</a>
     <a href="/#faq">FAQ</a>
     <a href="/#gallery">Фото</a>
-    <a href="pobediteli.html" style="color:var(--t);background:var(--d4);">Победители</a>
+    <a href="pobediteli.html">Победители</a>
     <a href="finaly.html">Финалы месяца</a>
     <a href="/#map">Адрес</a>
     <a href="/#signup-panel">Запись</a>
@@ -551,34 +522,62 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <button class="burger" id="burger" onclick="openMobileMenu()"><span></span><span></span><span></span></button>
 </nav>
 
-<section class="win-hero">
+<section class="legal-hero">
   <div class="wrap">
-    <div class="win-hero-badge"><span class="ldot"></span>Зал славы клуба</div>
-    <h1>Победители турниров</h1>
-    <p>Каждый вечер кто-то поднимает кубок. Здесь — реальные лица, реальные результаты. Может, следующим будете вы?</p>
+    <div class="legal-hero-badge"><span class="ldot"></span>Юридическая информация</div>
+    <h1>Политика конфиденциальности</h1>
+    <p>ИП Коровко Елизавета Андреевна · бренд «Пятая улица» · Челябинск</p>
   </div>
 </section>
 
-<section class="win-section">
+<section class="legal-section">
   <div class="wrap">
-    <div class="win-grid" id="win-grid">
-      <div class="win-loading">Загружаем победителей…</div>
+    <div class="legal-box">
+
+      <h2>1. Кто обрабатывает данные</h2>
+      <p>Оператором персональных данных является <b>ИП Коровко Елизавета Андреевна</b>, организующая развлекательные мероприятия под брендом <b>«Пятая улица»</b> в Челябинске (ресторан «АНИГО», ул. Кирова, 82). Настоящий документ действует в отношении сайта poker5st.ru, Telegram-бота клуба и очных мероприятий.</p>
+
+      <h2>2. Мероприятие не является азартной игрой</h2>
+      <p>В соответствии с ФЗ № 244-ФЗ мероприятия клуба проводятся исключительно в целях досуга и развития игровых навыков: денежные ставки не принимаются, денежный призовой фонд не формируется, результат турнира не имеет имущественного значения. Игровые фишки и рейтинговые очки — условные обозначения без денежного эквивалента.</p>
+
+      <h2>3. Какие данные собираются</h2>
+      <ul>
+        <li>Имя или никнейм, дата рождения — для подтверждения совершеннолетия (18+)</li>
+        <li>Контактные данные: телефон, Telegram/VK, e-mail — для связи и подтверждения записи</li>
+        <li>Игровые результаты, рейтинговые очки, статистика турниров</li>
+        <li>Фото и видео, сделанные в ходе мероприятий</li>
+        <li>Технические данные: IP-адрес, дата и время визита на сайт — в целях учёта посещаемости</li>
+      </ul>
+
+      <h2>4. Цели обработки</h2>
+      <ul>
+        <li>Регистрация и подтверждение участия в турнирах</li>
+        <li>Проверка возраста участника (18+) на стороне сервера</li>
+        <li>Ведение рейтинга и статистики игроков</li>
+        <li>Обеспечение порядка и безопасности на мероприятиях</li>
+        <li>Информирование об изменениях в расписании и новостях клуба</li>
+        <li>Учёт посещаемости сайта для его технического развития</li>
+      </ul>
+
+      <h2>5. Где хранятся данные</h2>
+      <p>Данные сайта и бота хранятся на собственном сервере клуба, физически размещённом на территории России. Уведомления о заявках и статистике дублируются администраторам клуба через Telegram — мессенджер выступает лишь каналом связи и самостоятельно данные не обрабатывает.</p>
+
+      <h2>6. Срок хранения</h2>
+      <p>Персональные данные хранятся <b>5 лет</b> с момента последнего участия в мероприятиях клуба. По истечении этого срока данные удаляются, если участник не запросил их удаление раньше.</p>
+
+      <h2>7. Права участника</h2>
+      <p>Участник вправе в любой момент запросить у организатора информацию о своих данных, потребовать их исправления или полного удаления — достаточно написать администратору клуба в <a href="https://t.me/POKER_5St" target="_blank">Telegram</a> или позвонить по телефону, указанному ниже.</p>
+
+      <h2>8. Фото- и видеосъёмка</h2>
+      <p>В ходе мероприятий клуба может вестись фото- и видеосъёмка для документирования турниров и социальных сетей клуба. Публикация конкретных материалов, где узнаваем участник, производится только с его отдельного согласия.</p>
+
+      <h2>9. Контакты</h2>
+      <p>По всем вопросам, связанным с обработкой персональных данных: телефон <a href="tel:+79507325355">+7 950 732-53-55</a>, Telegram-канал <a href="https://t.me/POKER_5St" target="_blank">@POKER_5St</a>.</p>
+
+      <div class="legal-footdate">Действующая редакция опубликована 23.07.2026</div>
     </div>
   </div>
 </section>
-
-<div class="win-lightbox" id="win-lightbox" onclick="closeLightbox(event)">
-  <button class="win-lightbox-close" onclick="closeLightbox(event)">✕</button>
-  <div class="win-lightbox-inner" onclick="event.stopPropagation()">
-    <img id="win-lightbox-img" src="" alt="">
-    <div class="win-lightbox-cap">
-      <div class="win-lightbox-tourn" id="win-lightbox-tourn"></div>
-      <div class="win-lightbox-name" id="win-lightbox-name"></div>
-      <div class="win-lightbox-date" id="win-lightbox-date"></div>
-      <div class="win-lightbox-caption" id="win-lightbox-caption"></div>
-    </div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer>
@@ -638,7 +637,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <a href="/#rules" class="mm-link"><span class="mm-link-ico">📋</span>Правила и очки</a>
     <a href="/#faq" class="mm-link"><span class="mm-link-ico">❓</span>Частые вопросы</a>
     <a href="/#gallery" class="mm-link"><span class="mm-link-ico">📸</span>Фото клуба</a>
-    <a href="pobediteli.html" class="mm-link" style="color:var(--t);background:rgba(139,47,224,.07);"><span class="mm-link-ico">🏆</span>Победители турниров</a>
+    <a href="pobediteli.html" class="mm-link"><span class="mm-link-ico">🏆</span>Победители турниров</a>
     <a href="finaly.html" class="mm-link"><span class="mm-link-ico">🏁</span>Финалы месяца</a>
     <a href="/#map" class="mm-link"><span class="mm-link-ico">📍</span>Адрес и контакты</a>
   </div>
@@ -649,67 +648,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 function openMobileMenu(){ document.getElementById('mobile-menu').classList.add('open'); document.body.style.overflow='hidden'; }
 function closeMobileMenu(){ document.getElementById('mobile-menu').classList.remove('open'); document.body.style.overflow=''; }
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMobileMenu(); });
-
-// ВРЕМЕННЫЙ адрес — ngrok-туннель до компьютера с ботом, тот же принцип, что и на основном сайте.
-const WINNERS_URL = '/winners';
-
-function escapeHtml(s){
-  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-
-let WINNERS_DATA = [];
-
-function openLightbox(i){
-  const w = WINNERS_DATA[i];
-  if(!w) return;
-  document.getElementById('win-lightbox-img').src = w.photo_url;
-  document.getElementById('win-lightbox-tourn').textContent = w.tournament;
-  document.getElementById('win-lightbox-name').textContent = w.winner_name;
-  document.getElementById('win-lightbox-date').textContent = w.date;
-  const capEl = document.getElementById('win-lightbox-caption');
-  capEl.textContent = w.caption || '';
-  capEl.style.display = w.caption ? '' : 'none';
-  document.getElementById('win-lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox(e){
-  if(e) e.stopPropagation();
-  document.getElementById('win-lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
-
-async function loadWinners(){
-  const grid = document.getElementById('win-grid');
-  try {
-    const res = await fetch(WINNERS_URL, {headers: {'ngrok-skip-browser-warning': 'true'}});
-    const data = await res.json();
-    const winners = data.winners || [];
-    if(!winners.length){
-      grid.innerHTML = `<div class="win-empty"><div class="win-empty-ico">🏆</div><p>Пока нет опубликованных победителей — самые первые фото появятся здесь уже после ближайшего турнира. Следите за нашим <a href="https://t.me/POKER_5St" target="_blank" style="color:var(--pl)">Telegram каналом</a>.</p></div>`;
-      return;
-    }
-    WINNERS_DATA = winners;
-    grid.innerHTML = winners.map((w, i) => `
-      <div class="win-card" onclick="openLightbox(${i})">
-        <div class="win-pin">📌</div>
-        <div class="win-photo-wrap">
-          <img src="${escapeHtml(w.photo_url)}" alt="Победитель турнира ${escapeHtml(w.tournament)}" loading="lazy">
-        </div>
-        <div class="win-body">
-          <div class="win-tourn">🏆 ${escapeHtml(w.tournament)}</div>
-          <div class="win-name">${escapeHtml(w.winner_name)}</div>
-          <div class="win-date">${escapeHtml(w.date)}</div>
-        </div>
-      </div>
-    `).join('');
-  } catch(e) {
-    grid.innerHTML = `<div class="win-empty"><div class="win-empty-ico">📡</div><p>Не получилось загрузить победителей. Загляните в наш <a href="https://t.me/POKER_5St" target="_blank" style="color:var(--pl)">Telegram канал</a> — там всегда есть свежие результаты.</p></div>`;
-  }
-}
-loadWinners();
 </script>
 </body>
 </html>

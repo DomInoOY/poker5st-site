@@ -596,6 +596,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <div class="fcol-t">Документы</div>
           <a href="/">Соглашение участника</a>
           <a href="/">Согласие на ПД</a>
+          <a href="privacy.html">Политика конфиденциальности</a>
         </div>
         <div>
           <div class="fcol-t">Контакты</div>
@@ -639,7 +640,7 @@ function closeMobileMenu(){ document.getElementById('mobile-menu').classList.rem
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMobileMenu(); });
 
 // ВРЕМЕННЫЙ адрес — ngrok-туннель до компьютера с ботом, тот же принцип, что и на основном сайте.
-const FINALS_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/finals';
+const FINALS_URL = '/finals';
 
 function escapeHtml(s){
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

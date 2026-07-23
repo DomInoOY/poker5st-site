@@ -965,6 +965,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <div class="fcol-t">Документы</div>
           <a href="#" onclick="openModal('m-ag');return false;">Соглашение участника</a>
           <a href="#" onclick="openModal('m-pd');return false;">Согласие на ПД</a>
+          <a href="privacy.html">Политика конфиденциальности</a>
         </div>
         <div>
           <div class="fcol-t">Контакты</div>
@@ -1149,7 +1150,7 @@ function syncSubmit(){
 // Рейтинг больше не хранится в localStorage браузера (это давало разный рейтинг у каждого посетителя) —
 // он считается ботом из результатов турниров и отдаётся отсюда всем одинаково.
 // ВРЕМЕННЫЙ адрес — ngrok-туннель до компьютера с ботом (см. пояснение у BOT_URL ниже). Замените после переноса бота на сервер.
-const RATING_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/rating';
+const RATING_URL = '/rating';
 let RATING_DATA = { players: [], tournaments: 0, pool_total: 0 };
 
 let RATING_LOAD_FAILED = false;
@@ -1391,7 +1392,7 @@ document.getElementById('signup-form').addEventListener('submit',function(e){
   // Отправляем на бота (если сервер запущен)
   // ВРЕМЕННЫЙ адрес — ngrok-туннель до компьютера с ботом (нужен HTTPS, т.к. сайт на HTTPS не может стучаться на голый HTTP).
   // После переноса бота на постоянный сервер замените на реальный публичный URL.
-  const BOT_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/register';
+  const BOT_URL = '/register';
   const payload = {
     name, ct, contact, tournament: tourn, date, comment,
     dob, age,
@@ -1445,7 +1446,7 @@ loadPlayerInfo();
 
 // ── СЧЁТЧИК ПОСЕЩЕНИЙ (для админ-панели, не влияет на сайт) ──
 // ВРЕМЕННЫЙ адрес — тот же принцип, что и у остальных URL на этой странице.
-const VISIT_TRACK_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/track-visit';
+const VISIT_TRACK_URL = '/track-visit';
 fetch(VISIT_TRACK_URL, {
   method: 'POST',
   headers: {'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true'},
@@ -1456,7 +1457,7 @@ fetch(VISIT_TRACK_URL, {
 // Публичный VAPID-ключ — безопасно светить на клиенте, приватный лежит только в боте.
 const VAPID_PUBLIC_KEY = 'BFKIEReSLhUJuJJMeLstFhmHhSXZFWsogz5QUx6XuwZB0AQHtdXngfgRn_sMOohjF6Eo6Fxjr4Ew4EbuwChvjoY';
 // Тот же временный адрес, что и BOT_URL выше — см. пояснение там про перенос на постоянный сервер.
-const PUSH_SUBSCRIBE_URL = 'https://2f4e-2a03-6f02-00-1-274a.ngrok-free.app/push-subscribe';
+const PUSH_SUBSCRIBE_URL = '/push-subscribe';
 
 function urlBase64ToUint8Array(base64String) {
   const padding = '='.repeat((4 - base64String.length % 4) % 4);
